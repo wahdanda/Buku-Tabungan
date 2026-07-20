@@ -127,10 +127,10 @@ function Hero() {
             <header className="text-black bg-white w-screen lg:outline-1 grid grid-cols-1 justify-center lg:w-md  ">
                 <section className="bg-blue-500  py-3">
                     <div>
-                        <h1 className="flex text-white justify-start gap-5">
+                        <h2 className="flex text-white text-5xl justify-start gap-5">
                             <Icon icon="mdi:paper-outline" className="text-4xl -mt-1" />Catatan
                             Keuangan
-                        </h1>
+                        </h2>
                     </div>
                 </section>
                 <section className="mt-10 px-3.5 flex justify-center mb-2">
@@ -142,11 +142,11 @@ function Hero() {
                 </section>
                 <section >
                     <div className="flex gap-1 justify-center">
-                        <div className="bg-gray-100 px-11 py-3 rounded-xl">
+                        <div className="bg-gray-100 px-8 sm:px-14 py-3 rounded-xl">
                             <p>pemasukan</p>
                             <p className="text-green-600"> Rp. {totalPemasukan.toLocaleString("id-ID")}</p>
                         </div>
-                        <div className="bg-gray-100 px-11 py-3 rounded-xl">
+                        <div className="bg-gray-100 px-8 sm:px-14 py-3 rounded-xl">
                             <p>pengeluaran</p>
                             <p className="text-red-600">RP. {totalPengeluaran.toLocaleString("id-ID")}</p>
                         </div>
