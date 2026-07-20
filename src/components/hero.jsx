@@ -124,7 +124,7 @@ function Hero() {
 
     return (
         <>
-            <header className="text-black outline-1 grid grid-cols-1 justify-center md:w-md  ">
+            <header className="text-black bg-white md:outline-1 grid grid-cols-1 justify-center md:w-md  ">
                 <section className="bg-blue-500  py-3">
                     <div>
                         <h1 className="flex text-white justify-start gap-5">
