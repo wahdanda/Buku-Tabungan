@@ -124,8 +124,8 @@ function Hero() {
 
     return (
         <>
-            <header className="text-black">
-                <section className="bg-blue-500 py-3">
+            <header className="text-black outline-1 grid grid-cols-1 justify-center md:w-md  ">
+                <section className="bg-blue-500  py-3">
                     <div>
                         <h1 className="flex text-white justify-start gap-5">
                             <Icon icon="mdi:paper-outline" className="text-4xl -mt-1" />Catatan
@@ -133,8 +133,8 @@ function Hero() {
                         </h1>
                     </div>
                 </section>
-                <section className="mt-10 px-3.5 mb-2">
-                    <div className="bg-gray-200 w-full py-4 rounded-xl">
+                <section className="mt-10 px-3.5 flex justify-center mb-2">
+                    <div className="bg-gray-200 w-md py-4 rounded-xl">
                         <h2>sisa anggaran bulanan</h2>
                         <h1>RP. {sisa.toLocaleString("id-ID")}</h1>
                     </div>
