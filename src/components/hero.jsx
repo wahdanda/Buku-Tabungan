@@ -142,11 +142,11 @@ function Hero() {
                 </section>
                 <section >
                     <div className="flex gap-1 justify-center">
-                        <div className="bg-gray-100 px-9 sm:px-14 py-3 rounded-xl">
+                        <div className="bg-gray-100 px-10 sm:px-14 py-3 rounded-xl">
                             <p>pemasukan</p>
                             <p className="text-green-600"> Rp. {totalPemasukan.toLocaleString("id-ID")}</p>
                         </div>
-                        <div className="bg-gray-100 px-9 sm:px-14 py-3 rounded-xl">
+                        <div className="bg-gray-100 px-10 sm:px-14 py-3 rounded-xl">
                             <p>pengeluaran</p>
                             <p className="text-red-600">RP. {totalPengeluaran.toLocaleString("id-ID")}</p>
                         </div>
