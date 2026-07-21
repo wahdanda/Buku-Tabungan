@@ -127,10 +127,10 @@ function Hero() {
             <header className="text-black bg-white w-screen lg:outline-1 grid grid-cols-1 justify-center lg:w-md  ">
                 <section className="bg-blue-500  py-3">
                     <div>
-                        <h2 className="flex text-white text-5xl justify-start gap-5">
+                        <h1 className="flex text-white  justify-start gap-5">
                             <Icon icon="mdi:paper-outline" className="text-4xl -mt-1" />Catatan
                             Keuangan
-                        </h2>
+                        </h1>
                     </div>
                 </section>
                 <section className="mt-10 px-3.5 flex justify-center mb-2">
