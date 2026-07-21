@@ -19,7 +19,7 @@
   letter-spacing: 0.18px;
   color-scheme: light dark;
   color: var(--text);
-  background: var(--bg);
+  background-color: #fff;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -60,7 +60,7 @@ body {
   max-width: 100%;
   margin: 0 auto;
   text-align: center;
-
+  background-color: #fff;
   min-height: 100svh;
   display: flex;
   

@@ -111,17 +111,10 @@ function Hero() {
     }, {});
 
     const handleDeleteTransaction = (id) => {
-    const confirmDelete = window.confirm(
-        "Yakin ingin menghapus transaksi ini?"
-    );
-
-    if (!confirmDelete) return;
-
-    setTransactions((prev) =>
-        prev.filter((item) => item.id !== id)
-    );
-};
-
+        setTransactions((prev) =>
+            prev.filter((item) => item.id !== id)
+        );
+    };
     return (
         <>
             <header className="text-black bg-white w-screen md:outline-1 grid grid-cols-1 justify-center md:w-md  ">
