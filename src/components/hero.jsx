@@ -124,7 +124,7 @@ function Hero() {
 
     return (
         <>
-            <header className="text-black bg-white w-screen lg:outline-1 grid grid-cols-1 justify-center lg:w-md  ">
+            <header className="text-black bg-white w-screen md:outline-1 grid grid-cols-1 justify-center md:w-md  ">
                 <section className="bg-blue-500 pt-1 h-20">
                     <div>
                         <h1 className="flex text-white  justify-start gap-5">
@@ -296,7 +296,7 @@ function Hero() {
                                     keluar ? "block" : "hidden"
                                 }`}
                                 >
-                                <div className="grid grid-cols-4 gap-4 text-black">
+                                <div className="grid grid-cols-4 gap-4 text-black md:grid-cols-7">
                                     {pengeluaranCategories.map((item, index) => (
                                     <button
                                         key={index}
@@ -325,7 +325,7 @@ function Hero() {
                                     masuk ? "block" : "hidden"
                                 }`}
                                 >
-                                <div className="grid grid-cols-4 gap-4 text-black">
+                                <div className="grid grid-cols-4 gap-4 text-black md:grid-cols-7">
                                     {pemasukanCategories.map((item, index) => (
                                     <button
                                         key={index}
@@ -354,18 +354,38 @@ function Hero() {
                                 {/* Nominal */}
                                 <div className="flex justify-between items-center">
                                     <button className="bg-gray-200 px-4 py-2 rounded-lg">
-                                    IDR (Rp)
+                                        IDR (Rp)
                                     </button>
 
-                                    <h1
-                                    className={`text-6xl font-light ${
-                                        transactionType === "pengeluaran"
-                                        ? "text-red-500"
-                                        : "text-green-500"
-                                    }`}
-                                    >
-                                    {amount || 0}
-                                    </h1>
+                                    {/* Mobile */}
+                                        <h1
+                                            className={`text-6xl font-light lg:hidden ${
+                                                transactionType === "pengeluaran"
+                                                    ? "text-red-500"
+                                                    : "text-green-500"
+                                            }`}
+                                        >
+                                            {amount || 0}
+                                        </h1>
+
+                                    {/* Desktop / Laptop */}
+                                    <input
+                                        type="number"
+                                        value={amount}
+                                        onChange={(e) => setAmount(e.target.value)}
+                                        placeholder="0"
+                                        className={`hidden lg:block
+                                        text-right
+                                        text-6xl
+                                        font-light
+                                        bg-transparent
+                                        outline-none
+                                        ${
+                                            transactionType === "pengeluaran"
+                                                ? "text-red-500 border-red-500"
+                                                : "text-green-500 border-green-500"
+                                        }`}
+                                    />
                                 </div>
 
                                 <hr className="my-4" />
@@ -389,55 +409,74 @@ function Hero() {
                                 </div>
                                 </div>
                                 {/* Keypad */}
-                                <div className="mt-5 grid grid-cols-4 gap-3">
-                                {[1,2,3,4,5,6,7,8,9,".",0].map((num)=>(
+                                {/* Keypad hanya muncul di HP */}
+                                <div className="mt-5 grid grid-cols-4 gap-3 lg:hidden">
+                                    {[1,2,3,4,5,6,7,8,9,".",0].map((num)=>(
+                                        <button
+                                            key={num}
+                                            onClick={() => handleNumber(num)}
+                                            className="h-16 rounded-xl border text-2xl hover:bg-gray-100"
+                                        >
+                                            {num}
+                                        </button>
+                                    ))}
+
                                     <button
-                                    key={num}
-                                    onClick={() => handleNumber(num)}
-                                    className="h-16 rounded-xl border text-2xl hover:bg-gray-100"
+                                        onClick={handleDelete}
+                                        className="row-span-1 px-5 rounded-xl border"
                                     >
-                                    {num}
+                                        <Icon icon="mdi:backspace-outline" width={34}/>
                                     </button>
-                                ))}
+
+                                    <button
+                                        onClick={handleSave}
+                                        className={`col-span-2 rounded-xl text-white ${
+                                            transactionType === "pengeluaran"
+                                                ? "bg-red-500"
+                                                : "bg-green-500"
+                                        }`}
+                                    >
+                                        Simpan
+                                    </button>
+
+                                    <button className="rounded-xl border">
+                                        Simpan & Lanjutkan
+                                    </button>
+
+                                    <button
+                                        onClick={() => setMenuOpen(false)}
+                                        className="h-16 rounded-xl border flex flex-col items-center justify-center hover:bg-gray-100 transition"
+                                    >
+                                        <Icon icon="mdi:arrow-left" width={24}/>
+                                        <span className="text-xs mt-1">
+                                            Kembali
+                                        </span>
+                                    </button>
+                                </div>
+                            {/* Tombol Desktop */}
+                            <div className="hidden lg:flex mt-6 gap-4">
                                 <button
-                                    onClick={handleDelete}
-                                    className="row-span-1 px-5 rounded-xl border"
+                                    onClick={() => setMenuOpen(false)}
+                                    className="flex-1 py-4 rounded-xl border hover:bg-gray-100 transition"
                                 >
-                                    <Icon icon="mdi:backspace-outline" width={34}/>
+                                    Kembali
                                 </button>
-                                
+
                                 <button
                                     onClick={handleSave}
-                                    className={`col-span-2 rounded-xl text-white ${
+                                    className={`flex-1 py-4 rounded-xl text-white transition ${
                                         transactionType === "pengeluaran"
-                                            ? "bg-red-500"
-                                            : "bg-green-500"
+                                            ? "bg-red-500 hover:bg-red-600"
+                                            : "bg-green-500 hover:bg-green-600"
                                     }`}
                                 >
                                     Simpan
                                 </button>
 
-                                <button
-                                    className="rounded-xl border"
-                                >
-                                    <p>
+                                <button className="flex-1 py-4 rounded-xl border hover:bg-gray-100 transition">
                                     Simpan & Lanjutkan
-                                    </p>
                                 </button>
-                                <button
-                                    onClick={() => setMenuOpen(false)}
-                                    className="h-16 rounded-xl border flex flex-col items-center justify-center hover:bg-gray-100 transition"
-                                >
-                                    <Icon
-                                        icon="mdi:arrow-left"
-                                        width={24}
-                                    />
-
-                                    <span className="text-xs mt-1">
-                                        Kembali
-                                    </span>
-                                </button>
-                                </div>
+                            </div>
                         </div>
                     </section>
                 </section>
