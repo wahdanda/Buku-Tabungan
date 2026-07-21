@@ -125,7 +125,7 @@ function Hero() {
     return (
         <>
             <header className="text-black bg-white w-screen lg:outline-1 grid grid-cols-1 justify-center lg:w-md  ">
-                <section className="bg-blue-500  py-3">
+                <section className="bg-blue-500 pt-1 h-20">
                     <div>
                         <h1 className="flex text-white  justify-start gap-5">
                             <Icon icon="mdi:paper-outline" className="text-4xl -mt-1" />Catatan
